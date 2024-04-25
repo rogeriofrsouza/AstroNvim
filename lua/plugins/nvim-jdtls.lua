@@ -1,13 +1,9 @@
 return {
   "mfussenegger/nvim-jdtls",
-  opts = {
-    settings = {
+  opts = function(_, opts)
+    opts.settings = {
       java = {
-        eclipse = {
-          downloadSources = true,
-        },
         configuration = {
-          updateBuildConfiguration = "interactive",
           runtimes = {
             {
               name = "JavaSE-11",
@@ -23,15 +19,6 @@ return {
             },
           },
         },
-        maven = {
-          downloadSources = true,
-        },
-        referencesCodeLens = {
-          enabled = true,
-        },
-        implementationsCodeLens = {
-          enabled = true,
-        },
         references = {
           includeDecompiledSources = true,
         },
@@ -45,7 +32,6 @@ return {
           tabSize = 4,
         },
       },
-      signatureHelp = { enabled = true },
-    },
-  },
+    }
+  end,
 }

@@ -1,7 +1,8 @@
 return {
   "mfussenegger/nvim-jdtls",
-  opts = function(_, opts)
-    opts.settings = {
+  opts = {
+    -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+    settings = {
       java = {
         configuration = {
           runtimes = {
@@ -24,14 +25,21 @@ return {
         },
         inlayHints = {
           parameterNames = {
-            enabled = "all", -- literals, all, none
+            enabled = "all",
           },
         },
         format = {
           insertSpaces = true,
           tabSize = 4,
         },
+        jdt = {
+          ls = {
+            lombokSupport = {
+              enabled = true,
+            },
+          },
+        },
       },
-    }
-  end,
+    },
+  },
 }
